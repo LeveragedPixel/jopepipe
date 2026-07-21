@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JobPipe — job matches</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🎯</text></svg>">
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel2: #1c2129;
+    --border: #2d333c;
+    --text: #e6e9ee;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --good: #3fb950;
+    --mid: #d29922;
+    --bad: #f85149;
+    --star: #e3b341;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .head-row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }
+  h1 { font-size: 18px; margin: 0; }
+  #stats { color: var(--muted); font-size: 12.5px; }
+  #warnings { margin-top: 6px; display: none; }
+  .warn {
+    background: #3a2d12; border: 1px solid #7a5b1e; color: #e8c56b;
+    border-radius: 6px; padding: 6px 10px; font-size: 12.5px; margin-top: 4px;
+  }
+
+  #controls {
+    display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+    padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--border);
+  }
+  #controls label { color: var(--muted); font-size: 12px; display: flex; align-items: center; gap: 6px; }
+  input, select {
+    background: var(--panel2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 13px;
+  }
+  input[type=range] { width: 110px; padding: 0; }
+  input[type=checkbox] { accent-color: var(--accent); }
+  #search { width: 190px; }
+  #compFloor { width: 90px; }
+  #shown-count { color: var(--muted); font-size: 12px; margin-left: auto; }
+
+  #list {
+    display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    padding: 12px 16px 60px; max-width: 1500px; margin: 0 auto;
+  }
+  @media (max-width: 420px) { #list { grid-template-columns: 1fr; padding: 10px 8px 60px; } }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .card.applied { border-color: #2ea04366; background: #12261a33; }
+  .card.saved { border-color: #58a6ff55; }
+  .card.hidden-job { opacity: .55; }
+  .card-top { display: flex; gap: 10px; align-items: flex-start; }
+  .badge {
+    min-width: 44px; text-align: center; font-weight: 700; font-size: 15px;
+    border-radius: 6px; padding: 5px 0; color: #0d1117; flex: none;
+  }
+  .badge.good { background: var(--good); }
+  .badge.mid { background: var(--mid); }
+  .badge.bad { background: var(--bad); }
+  .badge.none { background: var(--border); color: var(--muted); font-size: 11px; }
+  .title-block { min-width: 0; }
+  .job-title { font-weight: 600; font-size: 14.5px; }
+  .company { color: var(--muted); font-size: 12.5px; }
+  .meta-line { color: var(--muted); font-size: 12px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+  .comp { color: var(--text); }
+  .pitch { font-size: 13px; color: #c4cbd4; font-style: italic; }
+  .points { font-size: 12.5px; display: flex; flex-direction: column; gap: 2px; }
+  .strength { color: var(--good); }
+  .gap { color: var(--mid); }
+  .flag { color: var(--bad); }
+  .actions { display: flex; gap: 6px; margin-top: 4px; }
+  .actions button {
+    background: var(--panel2); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 10px; font-size: 12px; cursor: pointer;
+  }
+  .actions button:hover { color: var(--text); border-color: var(--muted); }
+  .actions button.active { color: #fff; border-color: transparent; }
+  .actions button.b-applied.active { background: var(--good); color: #0d1117; }
+  .actions button.b-saved.active { background: var(--accent); color: #0d1117; }
+  .actions button.b-hidden.active { background: var(--bad); color: #0d1117; }
+  #empty { color: var(--muted); text-align: center; padding: 50px 20px; grid-column: 1/-1; }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-row">
+    <h1>JobPipe</h1>
+    <div id="stats">loading…</div>
+  </div>
+  <div id="warnings"></div>
+</header>
+
+<div id="controls">
+  <label>Min score <input type="range" id="minScore" min="0" max="100" step="5" value="70">
+    <span id="minScoreVal">70</span></label>
+  <label>Search <input type="search" id="search" placeholder="title or company"></label>
+  <label>Source <select id="source"><option value="">all</option></select></label>
+  <label>Comp ≥ $<input type="number" id="compFloor" step="5000" min="0" placeholder="any"></label>
+  <label>Posted <select id="days">
+    <option value="">any time</option>
+    <option value="1">24h</option>
+    <option value="3">3 days</option>
+    <option value="7" selected>7 days</option>
+    <option value="14">14 days</option>
+    <option value="30">30 days</option>
+  </select></label>
+  <label><input type="checkbox" id="showUnscored"> unscored</label>
+  <label><input type="checkbox" id="showHidden"> hidden</label>
+  <label>Status <select id="statusFilter">
+    <option value="">all</option>
+    <option value="saved">saved</option>
+    <option value="applied">applied</option>
+  </select></label>
+  <span id="shown-count"></span>
+</div>
+
+<div id="list"></div>
+
+<script>
+"use strict";
+const LS_KEY = "jobpipe-status-v1";
+let DATA = { meta: {}, jobs: [] };
+let statuses = {};
+try { statuses = JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { statuses = {}; }
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g,
+  c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function saveStatuses() { localStorage.setItem(LS_KEY, JSON.stringify(statuses)); }
+
+function setStatus(id, key) {
+  const cur = statuses[id] || {};
+  cur[key] = !cur[key];
+  if (key === "applied" && cur.applied) cur.hidden = false;
+  statuses[id] = cur;
+  saveStatuses();
+  render();
+}
+
+function fmtComp(job) {
+  if (job.comp_text) return job.comp_text;
+  if (job.comp_min && job.comp_max)
+    return `$${job.comp_min.toLocaleString()}–$${job.comp_max.toLocaleString()}`;
+  if (job.comp_min) return `$${job.comp_min.toLocaleString()}+`;
+  return "comp n/a";
+}
+
+function daysAgo(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (isNaN(d)) return null;
+  return Math.floor((Date.now() - d.getTime()) / 86400000);
+}
+
+function badge(job) {
+  const s = job.score;
+  if (s == null) return `<div class="badge none">n/s</div>`;
+  const cls = s >= 80 ? "good" : s >= 60 ? "mid" : "bad";
+  return `<div class="badge ${cls}">${s >= 85 ? "⭐" : ""}${s}</div>`;
+}
+
+function card(job) {
+  const st = statuses[job.id] || {};
+  const cls = ["card", st.applied && "applied", st.saved && "saved", st.hidden && "hidden-job"]
+    .filter(Boolean).join(" ");
+  const age = daysAgo(job.date_posted ?? job.first_seen);
+  const sources = [job.source, ...(job.alt_sources || [])].join(", ");
+  const points = [];
+  if (job.strengths?.length) points.push(`<span class="strength">✓ ${esc(job.strengths[0])}</span>`);
+  if (job.gaps?.length) points.push(`<span class="gap">△ ${esc(job.gaps[0])}</span>`);
+  for (const f of job.flags || []) points.push(`<span class="flag">⚑ ${esc(f)}</span>`);
+  return `<div class="${cls}">
+    <div class="card-top">
+      ${badge(job)}
+      <div class="title-block">
+        <div class="job-title"><a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(job.title)}</a></div>
+        <div class="company">${esc(job.company)} · ${esc(job.location)}</div>
+      </div>
+    </div>
+    <div class="meta-line">
+      <span class="comp">${esc(fmtComp(job))}</span>
+      <span>${esc(sources)}</span>
+      ${age != null ? `<span>${age === 0 ? "today" : age + "d ago"}</span>` : ""}
+    </div>
+    ${job.one_line_pitch ? `<div class="pitch">${esc(job.one_line_pitch)}</div>` : ""}
+    ${points.length ? `<div class="points">${points.join("")}</div>` : ""}
+    <div class="actions">
+      <button class="b-applied ${st.applied ? "active" : ""}" data-id="${job.id}" data-k="applied">${st.applied ? "✓ Applied" : "Applied"}</button>
+      <button class="b-saved ${st.saved ? "active" : ""}" data-id="${job.id}" data-k="saved">${st.saved ? "★ Saved" : "Save"}</button>
+      <button class="b-hidden ${st.hidden ? "active" : ""}" data-id="${job.id}" data-k="hidden">${st.hidden ? "Unhide" : "Hide"}</button>
+    </div>
+  </div>`;
+}
+
+function filters() {
+  return {
+    minScore: +$("minScore").value,
+    q: $("search").value.trim().toLowerCase(),
+    source: $("source").value,
+    compFloor: +$("compFloor").value || 0,
+    days: $("days").value ? +$("days").value : null,
+    showUnscored: $("showUnscored").checked,
+    showHidden: $("showHidden").checked,
+    status: $("statusFilter").value,
+  };
+}
+
+function visible(job, f) {
+  const st = statuses[job.id] || {};
+  if (st.hidden && !f.showHidden) return false;
+  if (f.status === "saved" && !st.saved) return false;
+  if (f.status === "applied" && !st.applied) return false;
+  if (job.score == null) { if (!f.showUnscored) return false; }
+  else if (job.score < f.minScore) return false;
+  if (f.q && !(job.title + " " + job.company).toLowerCase().includes(f.q)) return false;
+  if (f.source && job.source !== f.source && !(job.alt_sources || []).includes(f.source)) return false;
+  if (f.compFloor && (job.comp_max ?? job.comp_min ?? 0) < f.compFloor) return false;
+  if (f.days != null) {
+    const age = daysAgo(job.date_posted ?? job.first_seen);
+    if (age == null || age > f.days) return false;
+  }
+  return true;
+}
+
+function render() {
+  const f = filters();
+  $("minScoreVal").textContent = f.minScore;
+  const shown = DATA.jobs.filter(j => visible(j, f));
+  $("list").innerHTML = shown.length
+    ? shown.map(card).join("")
+    : `<div id="empty">No jobs match the current filters.</div>`;
+  $("shown-count").textContent = `${shown.length} / ${DATA.jobs.length} shown`;
+  for (const btn of document.querySelectorAll(".actions button"))
+    btn.addEventListener("click", () => setStatus(btn.dataset.id, btn.dataset.k));
+}
+
+function renderHeader() {
+  const m = DATA.meta || {};
+  const last = m.last_run ? new Date(m.last_run).toLocaleString() : "never";
+  $("stats").textContent =
+    `last run ${last} · ${m.scraped_this_run ?? 0} scraped · ${m.new_this_run ?? 0} new · ` +
+    `${m.high_matches ?? 0} high matches (85+) · ${m.total ?? DATA.jobs.length} tracked`;
+  const warnBox = $("warnings");
+  const warns = [];
+  if (m.scoring_warning) warns.push(`Scoring: ${m.scoring_warning}`);
+  const fails = m.source_failures || [];
+  if (fails.length) {
+    const names = [...new Set(fails.map(x => x.source.split(":")[0]))].join(", ");
+    warns.push(`Source failures this run: ${names} (${fails.length} calls failed — API/RSS fallbacks still active)`);
+  }
+  warnBox.style.display = warns.length ? "block" : "none";
+  warnBox.innerHTML = warns.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join("");
+}
+
+async function init() {
+  try {
+    const resp = await fetch("data/jobs.json", { cache: "no-store" });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    DATA = await resp.json();
+    DATA.jobs = DATA.jobs || [];
+  } catch (e) {
+    $("stats").textContent = "could not load data/jobs.json — has the pipeline run yet?";
+    return;
+  }
+  // Populate source dropdown
+  const sources = [...new Set(DATA.jobs.flatMap(j => [j.source, ...(j.alt_sources || [])]))].sort();
+  $("source").innerHTML = `<option value="">all</option>` +
+    sources.map(s => `<option>${esc(s)}</option>`).join("");
+  // If nothing is scored yet (first run / scoring down), show unscored so the page isn't blank.
+  if (!DATA.jobs.some(j => j.score != null)) $("showUnscored").checked = true;
+  renderHeader();
+  render();
+  for (const id of ["minScore", "search", "source", "compFloor", "days",
+                    "showUnscored", "showHidden", "statusFilter"])
+    $(id).addEventListener("input", render);
+}
+init();
+</script>
+</body>
+</html>
