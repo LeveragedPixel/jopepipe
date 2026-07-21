@@ -72,15 +72,18 @@ def annualize(amount, interval):
         amount = float(amount)
     except (TypeError, ValueError):
         return None
-    if amount <= 0:
+    # amount != amount catches pandas NaN, which jobspy emits for missing values
+    if amount != amount or amount <= 0:
         return None
+    if not isinstance(interval, str) or not interval:
+        interval = "yearly"  # jobspy gives NaN (a float) when interval is missing
     factor = {
         "yearly": 1,
         "hourly": HOURLY_TO_ANNUAL,
         "daily": 260,
         "weekly": 52,
         "monthly": 12,
-    }.get((interval or "yearly").lower(), 1)
+    }.get(interval.lower(), 1)
     value = amount * factor
     # A bare number under 1000 with no interval is almost always an hourly rate.
     if factor == 1 and value < 1000:
@@ -88,20 +91,26 @@ def annualize(amount, interval):
     return int(round(value))
 
 
+def as_text(value):
+    """Coerce to a stripped string; pandas NaN and other non-strings become ''."""
+    return value.strip() if isinstance(value, str) else ""
+
+
 def clean_text(text):
-    if not text:
+    if not isinstance(text, str) or not text:
         return None
-    text = re.sub(r"\s+", " ", str(text)).strip()
+    text = re.sub(r"\s+", " ", text).strip()
     return text[:MAX_DESCRIPTION_CHARS] or None
 
 
 def make_job(title, company, url, source, location=None, comp_min=None,
              comp_max=None, comp_text=None, date_posted=None, description=None):
+    title, company = as_text(title), as_text(company)
     return {
         "id": job_id(title, company),
-        "title": (title or "").strip(),
-        "company": (company or "").strip() or "Unknown",
-        "location": (location or "").strip() or "Remote",
+        "title": title,
+        "company": company or "Unknown",
+        "location": as_text(location) or "Remote",
         "comp_min": comp_min,
         "comp_max": comp_max,
         "comp_text": comp_text,
@@ -169,27 +178,33 @@ def scrape_jobspy():
             if df is None or df.empty:
                 continue
             for row in df.to_dict("records"):
-                title = row.get("title")
-                if not title or not row.get("job_url"):
-                    continue
-                cmin = annualize(row.get("min_amount"), row.get("interval"))
-                cmax = annualize(row.get("max_amount"), row.get("interval"))
-                date_posted = row.get("date_posted")
-                if date_posted is not None and not isinstance(date_posted, str):
-                    date_posted = str(date_posted)[:10]
-                jobs.append(make_job(
-                    title=title,
-                    company=row.get("company"),
-                    url=row.get("job_url"),
-                    source=site,
-                    location=row.get("location"),
-                    comp_min=cmin,
-                    comp_max=cmax,
-                    comp_text=f"${cmin:,}–${cmax:,}" if cmin and cmax else None,
-                    date_posted=date_posted if date_posted and date_posted != "NaT" else None,
-                    description=row.get("description"),
-                ))
-                site_jobs += 1
+                try:
+                    title = as_text(row.get("title"))
+                    url = row.get("job_url")
+                    if not title or not isinstance(url, str) or not url:
+                        continue
+                    cmin = annualize(row.get("min_amount"), row.get("interval"))
+                    cmax = annualize(row.get("max_amount"), row.get("interval"))
+                    date_posted = row.get("date_posted")
+                    if date_posted is not None and not isinstance(date_posted, str):
+                        date_posted = str(date_posted)[:10]
+                    if date_posted in ("", "NaT", "None", "nan"):
+                        date_posted = None
+                    jobs.append(make_job(
+                        title=title,
+                        company=row.get("company"),
+                        url=url,
+                        source=site,
+                        location=row.get("location"),
+                        comp_min=cmin,
+                        comp_max=cmax,
+                        comp_text=f"${cmin:,}–${cmax:,}" if cmin and cmax else None,
+                        date_posted=date_posted,
+                        description=row.get("description"),
+                    ))
+                    site_jobs += 1
+                except Exception as exc:  # noqa: BLE001 — one bad row must not lose the site
+                    print(f"[skip] {site} row: {exc}")
         print(f"[ok] {site}: {site_jobs} jobs")
     return jobs
 
@@ -349,9 +364,11 @@ def merge(existing_jobs, scraped_jobs):
 
 def main():
     scraped = []
-    scraped += scrape_jobspy()
-    scraped += scrape_remoteok()
-    scraped += scrape_wwr()
+    for fn in (scrape_jobspy, scrape_remoteok, scrape_wwr):
+        try:
+            scraped += fn()
+        except Exception as exc:  # noqa: BLE001 — a crashed source must not skip the rest
+            record_failure(fn.__name__, exc)
 
     data = load_existing()
     jobs, new_count = merge(data["jobs"], scraped)
