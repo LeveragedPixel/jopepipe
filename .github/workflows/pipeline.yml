@@ -15,6 +15,9 @@ concurrency:
 jobs:
   scrape-score-publish:
     runs-on: ubuntu-latest
+    # The token secret lives in this GitHub environment (not in repository
+    # secrets); declaring it here is what exposes the secret to the job.
+    environment: CLAUDE_CODE_OAUTH_TOKEN
     timeout-minutes: 60
     steps:
       - name: Checkout
