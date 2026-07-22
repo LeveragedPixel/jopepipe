@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 12 * * *" # 6am MT
   workflow_dispatch:
+    inputs:
+      skip_scoring:
+        description: "Scrape only — skip Claude scoring (uses no tokens)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,14 +41,17 @@ jobs:
         run: python scraper.py
 
       - name: Set up Node
+        if: ${{ !inputs.skip_scoring }}
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install Claude Code CLI
+        if: ${{ !inputs.skip_scoring }}
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Score jobs with Claude
+        if: ${{ !inputs.skip_scoring }}
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           RESUME_CONTEXT: ${{ secrets.RESUME_CONTEXT }}
