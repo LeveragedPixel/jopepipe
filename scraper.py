@@ -183,6 +183,9 @@ def scrape_jobspy():
                     url = row.get("job_url")
                     if not title or not isinstance(url, str) or not url:
                         continue
+                    # Boards fuzzy-match hard (pharmacists, sales reps); keep only target titles
+                    if not TITLE_PATTERN.search(title):
+                        continue
                     cmin = annualize(row.get("min_amount"), row.get("interval"))
                     cmax = annualize(row.get("max_amount"), row.get("interval"))
                     date_posted = row.get("date_posted")
