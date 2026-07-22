@@ -17,9 +17,12 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 
-DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "jobs.json")
+ROOT = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(ROOT, "data")
+PROFILES_PATH = os.path.join(ROOT, "profiles.json")
 
 BATCH_SIZE = 10
+# Total scoring batches per run, shared across all profiles, to bound token spend.
 MAX_BATCHES = int(os.environ.get("MAX_SCORE_BATCHES", "12"))
 BATCH_TIMEOUT_S = 300
 NOW_ISO = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -60,14 +63,29 @@ per job, exactly this shape:
 """
 
 
-def load_data():
-    with open(DATA_PATH, encoding="utf-8") as fh:
+def load_data(path):
+    with open(path, encoding="utf-8") as fh:
         return json.load(fh)
 
 
-def save_data(data):
-    with open(DATA_PATH, "w", encoding="utf-8") as fh:
+def save_data(path, data):
+    with open(path, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=1, ensure_ascii=False)
+
+
+def load_profiles():
+    """Which profiles to score, each with its own resume secret and data file."""
+    try:
+        with open(PROFILES_PATH, encoding="utf-8") as fh:
+            cfg = json.load(fh)
+        profs = [p for p in cfg.get("profiles", [])
+                 if p.get("search_terms") and
+                 not any("EDIT ME" in t for t in p["search_terms"])]
+        if profs:
+            return profs
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        pass
+    return [{"id": "leigh", "name": "Leigh", "resume_secret": "RESUME_CONTEXT"}]
 
 
 def job_for_prompt(job):
@@ -131,29 +149,70 @@ def apply_scores(jobs_by_id, results):
     return applied
 
 
-def main():
+def score_profile(profile, resume, budget):
+    """Score up to `budget` batches for one profile. Returns batches consumed."""
+    pid = profile["id"]
+    path = os.path.join(DATA_DIR, f"jobs-{pid}.json")
     try:
-        data = load_data()
+        data = load_data(path)
     except (FileNotFoundError, json.JSONDecodeError) as exc:
-        print(f"[warn] cannot load {DATA_PATH}: {exc}; nothing to score")
-        return
+        print(f"[warn] profile '{pid}': cannot load {path}: {exc}; skipping")
+        return 0
 
     meta = data.setdefault("meta", {})
     jobs = data.get("jobs") or []
     jobs_by_id = {j["id"]: j for j in jobs}
     unscored = [j for j in jobs if j.get("score") is None]
 
-    if not unscored:
-        meta["scoring_warning"] = None
+    def finalize(warning):
+        remaining = sum(1 for j in jobs if j.get("score") is None)
+        if warning is None and remaining:
+            warning = f"{remaining} jobs still unscored (batch cap); next run will continue."
+        meta["scoring_warning"] = warning
         meta["high_matches"] = sum(1 for j in jobs if (j.get("score") or 0) >= 85)
-        save_data(data)
-        print("[done] nothing to score")
-        return
+        jobs.sort(key=lambda j: ((j.get("score") or -1), j.get("first_seen") or ""), reverse=True)
+        data["jobs"] = jobs
+        save_data(path, data)
+
+    if not unscored:
+        finalize(None)
+        print(f"[done] profile '{pid}': nothing to score")
+        return 0
+
+    all_batches = [unscored[i:i + BATCH_SIZE] for i in range(0, len(unscored), BATCH_SIZE)]
+    batches = all_batches[:budget]
+    print(f"[info] profile '{pid}': {len(all_batches)} batches pending, running {len(batches)}")
+
+    warning, consumed = None, 0
+    for idx, batch in enumerate(batches, 1):
+        try:
+            results = score_batch(resume, batch)
+        except Exception as exc:  # noqa: BLE001 — degrade to unscored, never fail the run
+            warning = f"Scoring stopped at batch {idx}: {str(exc)[:200]}"
+            print(f"[warn] profile '{pid}': {warning}")
+            break
+        applied = apply_scores(jobs_by_id, results)
+        consumed += 1
+        print(f"[ok] profile '{pid}' batch {idx}/{len(batches)}: scored {applied}/{len(batch)}")
+        save_data(path, data)  # checkpoint after every batch
+    finalize(warning)
+    return consumed
+
+
+def main():
+    profiles = load_profiles()
 
     if not os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
-        meta["scoring_warning"] = ("Scoring skipped: CLAUDE_CODE_OAUTH_TOKEN secret is not set. "
-                                   "Run `claude setup-token` and add it as a repo secret.")
-        save_data(data)
+        warn = ("Scoring skipped: CLAUDE_CODE_OAUTH_TOKEN secret is not set. "
+                "Run `claude setup-token` and add it as a repo secret.")
+        for p in profiles:
+            path = os.path.join(DATA_DIR, f"jobs-{p['id']}.json")
+            try:
+                data = load_data(path)
+                data.setdefault("meta", {})["scoring_warning"] = warn
+                save_data(path, data)
+            except (FileNotFoundError, json.JSONDecodeError):
+                pass
         print("[warn] no CLAUDE_CODE_OAUTH_TOKEN; publishing unscored jobs")
         return
 
@@ -163,35 +222,17 @@ def main():
     version = subprocess.run(["claude", "--version"], capture_output=True, text=True)
     print(f"[info] claude CLI: {version.stdout.strip() or version.stderr.strip()}")
 
-    profile = os.environ.get("RESUME_CONTEXT") or DEFAULT_PROFILE
-    warning = None
-    scored_total = 0
-    batches = [unscored[i:i + BATCH_SIZE] for i in range(0, len(unscored), BATCH_SIZE)]
-    if len(batches) > MAX_BATCHES:
-        print(f"[info] {len(batches)} batches pending, capping at {MAX_BATCHES} this run")
-        batches = batches[:MAX_BATCHES]
-
-    for idx, batch in enumerate(batches, 1):
-        try:
-            results = score_batch(profile, batch)
-        except Exception as exc:  # noqa: BLE001 — degrade to unscored, never fail the run
-            warning = f"Scoring stopped at batch {idx}/{len(batches)}: {str(exc)[:200]}"
-            print(f"[warn] {warning}")
+    # Shared batch budget across profiles keeps daily token spend bounded.
+    budget = MAX_BATCHES
+    for profile in profiles:
+        if budget <= 0:
+            print(f"[info] batch budget exhausted; profile '{profile['id']}' waits for next run")
             break
-        applied = apply_scores(jobs_by_id, results)
-        scored_total += applied
-        print(f"[ok] batch {idx}/{len(batches)}: scored {applied}/{len(batch)}")
-        save_data(data)  # checkpoint after every batch
-
-    remaining = sum(1 for j in jobs if j.get("score") is None)
-    if warning is None and remaining:
-        warning = f"{remaining} jobs still unscored (batch cap); next run will continue."
-    meta["scoring_warning"] = warning
-    meta["high_matches"] = sum(1 for j in jobs if (j.get("score") or 0) >= 85)
-    jobs.sort(key=lambda j: ((j.get("score") or -1), j.get("first_seen") or ""), reverse=True)
-    data["jobs"] = jobs
-    save_data(data)
-    print(f"[done] scored {scored_total} jobs, {remaining} remaining, warning={warning!r}")
+        secret = profile.get("resume_secret", "RESUME_CONTEXT")
+        resume = os.environ.get(secret) or DEFAULT_PROFILE
+        if not os.environ.get(secret):
+            print(f"[info] profile '{profile['id']}': {secret} not set, using generic profile")
+        budget -= score_profile(profile, resume, budget)
 
 
 if __name__ == "__main__":
