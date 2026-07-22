@@ -1,0 +1,33 @@
+{
+  "location_search": "",
+  "job_type": "fulltime",
+  "results_per_query": 20,
+  "hours_old": 72,
+  "profiles": [
+    {
+      "id": "leigh",
+      "name": "Leigh",
+      "resume_secret": "RESUME_CONTEXT",
+      "title_filter": "customer success|client success|onboarding|implementation|technical account manager|customer experience manager",
+      "search_terms": [
+        "Customer Success Manager",
+        "Customer Onboarding Specialist",
+        "Implementation Specialist",
+        "Technical Account Manager",
+        "Client Success Manager",
+        "Customer Success Manager SaaS",
+        "Customer Success Manager fintech",
+        "Customer Success Manager healthcare"
+      ]
+    },
+    {
+      "id": "wife",
+      "name": "Wife",
+      "resume_secret": "RESUME_CONTEXT_WIFE",
+      "title_filter": "",
+      "search_terms": [
+        "EDIT ME - add her target job titles here"
+      ]
+    }
+  ]
+}

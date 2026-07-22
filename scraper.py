@@ -23,31 +23,53 @@ import time
 import traceback
 from datetime import datetime, timezone
 
-DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "jobs.json")
-
-SEARCH_TERMS = [
-    "Customer Success Manager",
-    "Customer Onboarding Specialist",
-    "Implementation Specialist",
-    "Technical Account Manager",
-    "Client Success Manager",
-    "Customer Success Manager SaaS",
-    "Customer Success Manager fintech",
-    "Customer Success Manager healthcare",
-]
+ROOT = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(ROOT, "data")
+PROFILES_PATH = os.path.join(ROOT, "profiles.json")
 
 JOBSPY_SITES = ["indeed", "linkedin", "zip_recruiter", "glassdoor", "google"]
-
-# Titles must look like the target roles to keep API/RSS sources on-topic.
-TITLE_PATTERN = re.compile(
-    r"customer success|client success|onboarding|implementation"
-    r"|technical account manager|customer experience manager",
-    re.IGNORECASE,
-)
-
-RESULTS_PER_QUERY = int(os.environ.get("RESULTS_PER_QUERY", "20"))
-HOURS_OLD = int(os.environ.get("HOURS_OLD", "72"))
 MAX_DESCRIPTION_CHARS = 1500
+
+
+def load_config():
+    """Read profiles.json; fall back to a single built-in Customer Success profile."""
+    default = {
+        "location_search": "",
+        "job_type": "fulltime",
+        "results_per_query": 20,
+        "hours_old": 72,
+        "profiles": [{
+            "id": "leigh",
+            "name": "Leigh",
+            "resume_secret": "RESUME_CONTEXT",
+            "title_filter": ("customer success|client success|onboarding|implementation"
+                             "|technical account manager|customer experience manager"),
+            "search_terms": [
+                "Customer Success Manager", "Customer Onboarding Specialist",
+                "Implementation Specialist", "Technical Account Manager",
+                "Client Success Manager",
+            ],
+        }],
+    }
+    try:
+        with open(PROFILES_PATH, encoding="utf-8") as fh:
+            cfg = json.load(fh)
+        if cfg.get("profiles"):
+            return cfg
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        print(f"[warn] profiles.json unusable ({exc}); using built-in default")
+    return default
+
+
+def compile_filter(pattern):
+    """A profile's title_filter regex, or None to accept every title."""
+    pattern = (pattern or "").strip()
+    return re.compile(pattern, re.IGNORECASE) if pattern else None
+
+
+def valid_terms(terms):
+    """Drop placeholder / empty search terms so an unconfigured profile is a no-op."""
+    return [t for t in (terms or []) if t and "EDIT ME" not in t]
 
 HOURLY_TO_ANNUAL = 2080
 now_utc = datetime.now(timezone.utc)
@@ -104,13 +126,15 @@ def clean_text(text):
 
 
 def make_job(title, company, url, source, location=None, comp_min=None,
-             comp_max=None, comp_text=None, date_posted=None, description=None):
+             comp_max=None, comp_text=None, date_posted=None, description=None,
+             remote=None):
     title, company = as_text(title), as_text(company)
     return {
         "id": job_id(title, company),
         "title": title,
         "company": company or "Unknown",
         "location": as_text(location) or "Remote",
+        "remote": bool(remote),
         "comp_min": comp_min,
         "comp_max": comp_max,
         "comp_text": comp_text,
@@ -150,64 +174,77 @@ def with_retries(source, fn, attempts=2):
 
 # ---------------------------------------------------------------- jobspy boards
 
-def scrape_jobspy():
+def scrape_jobspy(terms, title_filter, cfg):
     try:
         from jobspy import scrape_jobs
     except ImportError as exc:
         record_failure("jobspy", exc)
         return []
 
+    results_wanted = int(cfg.get("results_per_query", 20))
+    hours_old = int(cfg.get("hours_old", 72))
+    job_type = cfg.get("job_type") or "fulltime"
+    location_search = (cfg.get("location_search") or "").strip()
+
+    # Always search remote-US; if a location is configured, add an on-site pass there.
+    passes = [{"location": "United States", "is_remote": True}]
+    if location_search:
+        passes.append({"location": location_search, "is_remote": False})
+
     jobs = []
     for site in JOBSPY_SITES:
         site_jobs = 0
-        for term in SEARCH_TERMS:
-            def call(site=site, term=term):
-                return scrape_jobs(
-                    site_name=[site],
-                    search_term=term,
-                    location="United States",
-                    is_remote=True,
-                    job_type="fulltime",
-                    results_wanted=RESULTS_PER_QUERY,
-                    hours_old=HOURS_OLD,
-                    country_indeed="USA",
-                    verbose=0,
-                )
-            df = with_retries(f"{site}:{term}", call)
-            polite_sleep()
-            if df is None or df.empty:
-                continue
-            for row in df.to_dict("records"):
-                try:
-                    title = as_text(row.get("title"))
-                    url = row.get("job_url")
-                    if not title or not isinstance(url, str) or not url:
-                        continue
-                    # Boards fuzzy-match hard (pharmacists, sales reps); keep only target titles
-                    if not TITLE_PATTERN.search(title):
-                        continue
-                    cmin = annualize(row.get("min_amount"), row.get("interval"))
-                    cmax = annualize(row.get("max_amount"), row.get("interval"))
-                    date_posted = row.get("date_posted")
-                    if date_posted is not None and not isinstance(date_posted, str):
-                        date_posted = str(date_posted)[:10]
-                    if date_posted in ("", "NaT", "None", "nan"):
-                        date_posted = None
-                    jobs.append(make_job(
-                        title=title,
-                        company=row.get("company"),
-                        url=url,
-                        source=site,
-                        location=row.get("location"),
-                        comp_min=cmin,
-                        comp_max=cmax,
-                        comp_text=f"${cmin:,}–${cmax:,}" if cmin and cmax else None,
-                        date_posted=date_posted,
-                        description=row.get("description"),
-                    ))
-                    site_jobs += 1
-                except Exception as exc:  # noqa: BLE001 — one bad row must not lose the site
-                    print(f"[skip] {site} row: {exc}")
+        for term in terms:
+            for p in passes:
+                def call(site=site, term=term, p=p):
+                    return scrape_jobs(
+                        site_name=[site],
+                        search_term=term,
+                        location=p["location"],
+                        is_remote=p["is_remote"],
+                        job_type=job_type,
+                        results_wanted=results_wanted,
+                        hours_old=hours_old,
+                        country_indeed="USA",
+                        verbose=0,
+                    )
+                tag = "remote" if p["is_remote"] else p["location"]
+                df = with_retries(f"{site}:{term}:{tag}", call)
+                polite_sleep()
+                if df is None or df.empty:
+                    continue
+                for row in df.to_dict("records"):
+                    try:
+                        title = as_text(row.get("title"))
+                        url = row.get("job_url")
+                        if not title or not isinstance(url, str) or not url:
+                            continue
+                        # Boards fuzzy-match hard (pharmacists, sales reps); keep on-target
+                        if title_filter and not title_filter.search(title):
+                            continue
+                        cmin = annualize(row.get("min_amount"), row.get("interval"))
+                        cmax = annualize(row.get("max_amount"), row.get("interval"))
+                        date_posted = row.get("date_posted")
+                        if date_posted is not None and not isinstance(date_posted, str):
+                            date_posted = str(date_posted)[:10]
+                        if date_posted in ("", "NaT", "None", "nan"):
+                            date_posted = None
+                        jobs.append(make_job(
+                            title=title,
+                            company=row.get("company"),
+                            url=url,
+                            source=site,
+                            location=row.get("location"),
+                            comp_min=cmin,
+                            comp_max=cmax,
+                            comp_text=f"${cmin:,}–${cmax:,}" if cmin and cmax else None,
+                            date_posted=date_posted,
+                            description=row.get("description"),
+                            remote=bool(row.get("is_remote")) or p["is_remote"],
+                        ))
+                        site_jobs += 1
+                    except Exception as exc:  # noqa: BLE001 — one bad row must not lose the site
+                        print(f"[skip] {site} row: {exc}")
         print(f"[ok] {site}: {site_jobs} jobs")
     return jobs
 
@@ -218,7 +255,7 @@ US_OK = re.compile(r"^\s*$|usa|united states|north america|americas|worldwide|an
                    re.IGNORECASE)
 
 
-def scrape_remoteok():
+def scrape_remoteok(title_filter):
     import requests
 
     def call():
@@ -239,7 +276,7 @@ def scrape_remoteok():
         if not isinstance(item, dict) or not item.get("position"):
             continue  # first element is the API legal notice
         title = item["position"]
-        if not TITLE_PATTERN.search(title):
+        if title_filter and not title_filter.search(title):
             continue
         if not US_OK.search(item.get("location") or ""):
             continue
@@ -256,6 +293,7 @@ def scrape_remoteok():
             comp_text=f"${cmin:,}–${cmax:,}" if cmin and cmax else None,
             date_posted=(item.get("date") or "")[:10] or None,
             description=re.sub(r"<[^>]+>", " ", item.get("description") or ""),
+            remote=True,
         ))
     print(f"[ok] remoteok: {len(jobs)} jobs")
     return jobs
@@ -269,7 +307,7 @@ WWR_FEEDS = [
 ]
 
 
-def scrape_wwr():
+def scrape_wwr(title_filter):
     import xml.etree.ElementTree as ET
     from email.utils import parsedate_to_datetime
 
@@ -307,7 +345,7 @@ def scrape_wwr():
             company, _, title = raw_title.partition(":")
             if not title:
                 title, company = raw_title, ""
-            if not TITLE_PATTERN.search(title):
+            if title_filter and not title_filter.search(title):
                 continue
             region = item_text(item, "region")
             if region and not US_OK.search(region):
@@ -327,6 +365,7 @@ def scrape_wwr():
                 location=region or "Remote",
                 date_posted=date_posted,
                 description=re.sub(r"<[^>]+>", " ", item_text(item, "description")),
+                remote=True,
             ))
     print(f"[ok] weworkremotely: {len(jobs)} jobs")
     return jobs
@@ -334,9 +373,13 @@ def scrape_wwr():
 
 # ------------------------------------------------------------------ merge/save
 
-def load_existing():
+def data_path(profile_id):
+    return os.path.join(DATA_DIR, f"jobs-{profile_id}.json")
+
+
+def load_existing(path):
     try:
-        with open(DATA_PATH, encoding="utf-8") as fh:
+        with open(path, encoding="utf-8") as fh:
             data = json.load(fh)
         if isinstance(data, dict) and isinstance(data.get("jobs"), list):
             return data
@@ -365,34 +408,71 @@ def merge(existing_jobs, scraped_jobs):
     return list(by_id.values()), new_count
 
 
-def main():
+def scrape_profile(profile, cfg):
+    """Scrape and merge one profile into its own data/jobs-<id>.json."""
+    global failures
+    failures = []  # per-profile failure log for that profile's dashboard header
+    pid = profile["id"]
+    terms = valid_terms(profile.get("search_terms"))
+    title_filter = compile_filter(profile.get("title_filter"))
+    print(f"=== profile '{pid}' ({profile.get('name', pid)}): {len(terms)} search terms ===")
+
+    if not terms:
+        print(f"[skip] profile '{pid}' has no configured search terms; leaving its data as-is")
+        return
+
     scraped = []
-    for fn in (scrape_jobspy, scrape_remoteok, scrape_wwr):
+    scraped += scrape_jobspy(terms, title_filter, cfg)
+    for fn in (scrape_remoteok, scrape_wwr):
         try:
-            scraped += fn()
+            scraped += fn(title_filter)
         except Exception as exc:  # noqa: BLE001 — a crashed source must not skip the rest
             record_failure(fn.__name__, exc)
 
-    data = load_existing()
+    path = data_path(pid)
+    data = load_existing(path)
     jobs, new_count = merge(data["jobs"], scraped)
     jobs.sort(key=lambda j: ((j.get("score") or -1), j.get("first_seen") or ""), reverse=True)
 
     meta = data.get("meta") or {}
     meta.update({
+        "profile_id": pid,
+        "profile_name": profile.get("name", pid),
         "last_run": NOW_ISO,
         "total": len(jobs),
         "scraped_this_run": len(scraped),
         "new_this_run": new_count,
         "high_matches": sum(1 for j in jobs if (j.get("score") or 0) >= 85),
-        "source_failures": failures,
+        "source_failures": list(failures),
         "scoring_warning": meta.get("scoring_warning"),
     })
 
-    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-    with open(DATA_PATH, "w", encoding="utf-8") as fh:
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
         json.dump({"meta": meta, "jobs": jobs}, fh, indent=1, ensure_ascii=False)
-    print(f"[done] {len(scraped)} scraped, {new_count} new, {len(jobs)} total, "
-          f"{len(failures)} source failures")
+    print(f"[done] profile '{pid}': {len(scraped)} scraped, {new_count} new, "
+          f"{len(jobs)} total, {len(failures)} source failures")
+
+
+def write_index(cfg):
+    """List the active profiles so the dashboard knows which files to load."""
+    index = {"profiles": [
+        {"id": p["id"], "name": p.get("name", p["id"])}
+        for p in cfg["profiles"] if valid_terms(p.get("search_terms"))
+    ]}
+    with open(os.path.join(DATA_DIR, "profiles-index.json"), "w", encoding="utf-8") as fh:
+        json.dump(index, fh, indent=1, ensure_ascii=False)
+
+
+def main():
+    cfg = load_config()
+    os.makedirs(DATA_DIR, exist_ok=True)
+    for profile in cfg["profiles"]:
+        try:
+            scrape_profile(profile, cfg)
+        except Exception as exc:  # noqa: BLE001 — one bad profile must not skip the rest
+            print(f"[warn] profile '{profile.get('id')}' crashed: {exc}")
+    write_index(cfg)
 
 
 if __name__ == "__main__":

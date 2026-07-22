@@ -1,12 +1,14 @@
 {
  "meta": {
-  "last_run": "2026-07-22T13:31:26Z",
+  "last_run": "2026-07-22T02:34:17Z",
   "total": 217,
-  "scraped_this_run": 180,
-  "new_this_run": 24,
+  "scraped_this_run": 181,
+  "new_this_run": 8,
   "high_matches": 6,
   "source_failures": [],
-  "scoring_warning": null
+  "scoring_warning": "73 jobs still unscored (batch cap); next run will continue.",
+  "profile_id": "leigh",
+  "profile_name": "Leigh"
  },
  "jobs": [
   {
@@ -35,7 +37,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Salesforce implementation role at a legal tech company — excellent title, tool, and industry alignment.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "0344a6620ef33cd5",
@@ -63,7 +66,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote technical implementation role at a SaaS company is an excellent match for both title and technical background.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "29392a5add5bc1ad",
@@ -92,7 +96,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role in SaaS/security with onboarding focus and strong pay — an excellent match.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7dce6d7d5929de52",
@@ -119,7 +124,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote CSM role at a healthcare tech company is a near-perfect title and industry match for this profile.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a8be6f6c545c7ace",
@@ -148,7 +154,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote implementation role at a healthcare tech startup is a near-perfect title and industry match.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "baacdf2438240f65",
@@ -175,7 +182,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Excellent match: CSM title at a remote healthcare-fintech billing company squarely in the target industries.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "32b29ae2cb3116d5",
@@ -205,7 +213,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A well-matched remote Mid-Market CSM role at a SaaS company using Salesforce, with solid (if not top-of-range) pay.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "2726eb7e22162e53",
@@ -233,7 +242,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote fintech Client Success role handling strategic accounts fits both the title and seniority profile well.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "87c03fce4399d7c3",
@@ -262,7 +272,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote SaaS Customer Success management role with strong title and comp alignment.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "06b07f85f7f76f9b",
@@ -290,7 +301,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote fintech/payments Client Success role is a strong industry and title match despite being posted through a recruiter.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7563394747ecf40f",
@@ -318,7 +330,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote SaaS Client Success role that closely mirrors the target title and industry.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0fc878a9165a240e",
@@ -345,7 +358,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role at a healthcare tech company is a strong title and industry match for this profile.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a2073a1a3e996221",
@@ -375,7 +389,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote Implementation Specialist role in healthcare benefits with solid pay squarely in market range.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "76ffed4d8177bfd9",
@@ -403,7 +418,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote, mid-market CSM role at a SaaS company that closely matches the target title and work style.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "e4a2c6db3252ba44",
@@ -430,7 +446,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong match: CSM title at a healthcare tech company, squarely in the candidate's target industry.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "03698ab9bb7ee8e0",
@@ -458,7 +475,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Customer Success Manager role at a healthcare tech company is a near-ideal match for this profile.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "6e80021af5bd283b",
@@ -486,7 +504,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Technical, customer-facing SaaS support role that closely mirrors the blend of IT support and customer success experience.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d4ca23caa8827fe4",
@@ -514,7 +533,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote implementation role at a fintech SaaS company that lines up well with technical onboarding experience.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "20cd0f1ec37814e6",
@@ -542,7 +562,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote, senior enterprise CSM role that fits both experience level and desired work arrangement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "b642066cf5ba0f00",
@@ -570,7 +591,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Implementation/Customer Success hybrid role at a health-insurance-adjacent company, strong title and industry fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "3fd0fd1f991be277",
@@ -600,7 +622,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong remote CSM fit with solid comp at a SaaS platform, even though the vertical is education rather than a named target industry.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "a71472c1a4f9be09",
@@ -628,7 +651,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Best overall fit: exact title match, explicitly remote, and in a fintech-adjacent industry.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "93cbb59f487c395d",
@@ -656,7 +680,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role at a likely healthcare-tech company — strong title and industry alignment.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "136160c7aabf9918",
@@ -683,7 +708,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong remote CSM fit at a US SaaS security company with clear title and industry alignment.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a52852c9526a23a0",
@@ -711,7 +737,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote implementation specialist role in HR/benefits tech that suits a technical onboarding background.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0ca8686d1d7802e1",
@@ -739,7 +766,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote Senior CSM role at an insurtech SaaS company that lines up well with target title, seniority, and industry.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "4e8f0e550854d644",
@@ -767,7 +795,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Implementation Specialist role at an HR tech SaaS company, solid title and industry match.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "cfd22b897106c413",
@@ -796,7 +825,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role at a payments/fintech company closely matches target title and industry.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "669553810e7e22bc",
@@ -824,7 +854,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote senior TAM role that aligns well with a decade of experience, pending industry/comp details.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "5e6b441cff3419f0",
@@ -851,7 +882,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Client Success Manager role at an insurtech/fintech software company fits both title and industry targets well.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "e5241c819df1621a",
@@ -879,7 +911,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote senior CSM role at a healthcare tech company, slightly above typical target seniority but a strong overall fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "549e22ac09891f93",
@@ -907,7 +940,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote technical implementation role well-matched to title and IT support skills, but industry fit is uncertain.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "74b758e09c02a859",
@@ -934,7 +968,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Implementation Consultant role that fits the target title profile, though industry fit is unconfirmed.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "004febdfbbc21797",
@@ -961,7 +996,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote enterprise CSM role at a SaaS security company is a strong structural fit despite unknown pay.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "817c05da6383da70",
@@ -989,7 +1025,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote merchant implementation role plays well to payments and onboarding experience, though the employer's business model is unclear.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "4d10733b55fb5232",
@@ -1016,7 +1053,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Senior CSM role at a SaaS company aligns well with both title and industry targets.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "fbae747eaf4b45b6",
@@ -1045,7 +1083,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote TAM role that matches the target title exactly, though it may demand more Azure-specific depth than this background offers.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "01c37269cc6ac776",
@@ -1073,7 +1112,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Straightforward CSM individual-contributor role with strong title and remote fit despite an off-target industry.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "5df38e15ef797d62",
@@ -1101,7 +1141,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong industry (healthcare tech) and title alignment in a remote implementation role.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8eec16adb19d19f9",
@@ -1129,7 +1170,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote healthcare-adjacent implementation role, though blended with account management responsibilities.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "288199f12bd9e9c3",
@@ -1159,7 +1201,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Solid SaaS CSM title and remote setup, though the EST-only requirement limits true remote flexibility.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "abfaa2a20533f62e",
@@ -1187,7 +1230,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role at an education SaaS company — solid title and remote fit, industry slightly off-center.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "80c87954f5c29ab3",
@@ -1215,7 +1259,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title and remote status are close to ideal for someone with a strong technical onboarding background.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "e88cf03de2bb3c60",
@@ -1243,7 +1288,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote Customer Success Specialist role at a fintech-flavored company that lines up well on title, industry, and remote status.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "518bf46c89b813f1",
@@ -1270,7 +1316,8 @@
    ],
    "flags": [],
    "one_line_pitch": "CSM role in legal tech, a strong industry match for this candidate's background.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3c9c4faae184f2d3",
@@ -1298,7 +1345,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Well-matched technical implementation title at a remote SaaS company.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8c9d0307c51c221b",
@@ -1326,7 +1374,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good title and industry fit in remote SaaS implementation work.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "bccd0ea62dd2244a",
@@ -1355,7 +1404,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM role at a SaaS security company matches title and industry, though scaled 'digital' scope needs verification.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "c203ef49c6828b29",
@@ -1384,7 +1434,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title match and fully remote, but the technical consulting depth and above-market pay suggest a more specialized fit than a typical CS/TAM background.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "fc2ba1e3467cd445",
@@ -1411,7 +1462,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote CSM role at a SaaS security company — strong title and remote fit, though pay is unconfirmed.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "419edbf4d0068c96",
@@ -1441,7 +1493,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong title and legal tech industry match, tempered by an EST/NY-only remote restriction.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "35c6766232887a1e",
@@ -1470,7 +1523,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Best title match in the batch (Technical Account Manager) with technical integration work, though remote status and industry fit are uncertain.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "346ac90fdb6168cf",
@@ -1498,7 +1552,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title and seniority look like a strong match, but the unclear underlying employer/industry adds uncertainty.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d68ea52595e2a74a",
@@ -1525,7 +1580,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong CSM title and remote setup, though industrial IoT is outside the preferred industry list.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "5b1dd7f38c4190df",
@@ -1553,7 +1609,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Excellent legal-tech industry and title fit, held back by an apparent on-site NYC requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "48dd16341e4da3c0",
@@ -1582,7 +1639,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid Salesforce-heavy implementation role remotely, though the industry is off-target.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "446eab00c44b9e16",
@@ -1610,7 +1668,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote implementation specialist role in HR tech SaaS with solid title alignment.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "2451c77ff007d36a",
@@ -1637,7 +1696,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote implementation role with good title fit, but industry falls outside the preferred SaaS/fintech/legal/healthcare focus.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "76b6fccfed0a6d49",
@@ -1667,7 +1727,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote, title-matched SaaS CSM role, but pay level suggests a more senior scope than this profile's typical band.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "38cc14e3e0a58e2f",
@@ -1696,7 +1757,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Solid TAM/SaaS title match but pinned to Florida rather than open remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3b35e8553a75b073",
@@ -1726,7 +1788,8 @@
     "low comp"
    ],
    "one_line_pitch": "Solid CSM title and platform-industry fit, though pay dips just under the comp floor and remote status is unclear.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ccd26901853add3e",
@@ -1757,7 +1820,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote and SaaS-based, but the Senior Manager title likely implies team leadership beyond the target scope.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d8bbcbf9bd9b2114",
@@ -1786,7 +1850,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A remote Implementation Specialist role with a healthcare/insurance claims angle, though details are thin.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "79043f54401a9cf5",
@@ -1813,7 +1878,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Healthcare tech client success role that fits industry and title targets but requires on-site presence in NYC.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "b273e387858392e2",
@@ -1840,7 +1906,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong healthcare tech and title alignment, limited by the lack of a remote arrangement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "2f9291ef3236ff56",
@@ -1870,7 +1937,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong title match in a healthcare-adjacent company, but 'Mountain/Western Region' likely limits true remote flexibility.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8c46feea7056fa6f",
@@ -1900,7 +1968,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title match remotely, but location tied to South Carolina and industry is hardware rather than the target SaaS/fintech space.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "c58a0cd7fd348d3f",
@@ -1930,7 +1999,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Great industry and remote fit, but the Manager-level title likely sits above the target seniority band.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "a651575ea153aee9",
@@ -1957,7 +2027,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Ideal title and fully remote, but the hardware manufacturing industry is a step outside the target verticals.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "2fbca652f62dff5e",
@@ -1988,7 +2059,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong title and healthcare-tech industry match, but it's an NYC-based role rather than remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "10f78ee8657dba03",
@@ -2019,7 +2091,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Healthcare CSM role with great pay, but likely restricted to Midwest candidates rather than fully remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "52823a618cf15040",
@@ -2047,7 +2120,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Implementation Manager title fits well, but the posting lacks employer and industry detail to fully assess.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "50c6182cdcef8891",
@@ -2075,7 +2149,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote healthcare-tech CSM role is a good fit on paper, but the clinical specialization may require domain expertise outside the profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ed85f6967c485e43",
@@ -2102,7 +2177,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title and fintech industry fit, but appears to be an onsite Irvine role rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "591e6586b61eef9d",
@@ -2131,7 +2207,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote and partially title-matched, but the claims-processing component pulls it away from core CS/onboarding work.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "9f97630c980a44e3",
@@ -2158,7 +2235,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Straightforward CSM title match but too little company/comp info to confirm strong fit.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "f5f8d0b6b2a0ee32",
@@ -2185,7 +2263,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right title and remote, but industry (industrial metrology software) is a stretch from target sectors.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "eadffb12d0c2fd14",
@@ -2215,7 +2294,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote Client Success Manager title matches well, though the real estate marketing tech industry falls outside the target sectors.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "491b2ea1e26fe047",
@@ -2243,7 +2323,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title alignment for an experienced CS professional, but tied to a New York office with no pay info.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "c66c6065743beae1",
@@ -2271,7 +2352,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid CSM title match but likely requires NY presence and lacks any compensation transparency.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "517ad1f9a9519851",
@@ -2301,7 +2383,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong SaaS CSM title match, but tied to specific hub-city locations rather than fully remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "cfcffcbe90bb97c3",
@@ -2332,7 +2415,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote and SaaS-based, but this is a people-manager role over a team of consultants rather than the individual-contributor CS/implementation work targeted.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "1418287c4d5d394d",
@@ -2360,7 +2444,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Fintech industry match with implementation-focused work, but based onsite in NYC and title suggests possible management scope.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "f39dd3a7be98adb9",
@@ -2389,7 +2474,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good fintech-adjacent TAM fit at BioCatch, but requires being on-site in NYC.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "c0c03db502eb1da2",
@@ -2418,7 +2504,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong healthcare tech CSM fit, but tied to an on-site Burlingame, CA location rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a7f9d75fc0ca57b7",
@@ -2447,7 +2534,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "A payments-industry CSM role that matches well on paper but requires being based in New York.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "9c455dd5152405dd",
@@ -2476,7 +2564,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Solid CSM fit at a major SaaS company, but limited to California-based remote workers.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "97c5a616ad666a57",
@@ -2503,7 +2592,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right job title, but unverified industry and an in-office New York location work against remote/comp needs.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "30e9099f87e67227",
@@ -2530,7 +2620,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches well but the listing offers no remote option or pay detail to confirm fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7c3fe7a7b04e6515",
@@ -2560,7 +2651,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Great fintech industry and title fit, undercut by a non-remote Jacksonville location.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "823b2c92e6c7bb17",
@@ -2591,7 +2683,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Great tool and title match at ServiceNow, but the on-site requirement and above-market comp signal a more senior enterprise role than this profile targets.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7d77bb5e2f49e724",
@@ -2619,7 +2712,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Healthcare tech is a great industry fit, but the Coordinator title and onsite Nashville location are limiting factors.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "46b1e6e7b4a34fdd",
@@ -2646,7 +2740,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title is a perfect match, but the role appears location-bound to a specific NY site rather than remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "e0c7ea2fa656ff4a",
@@ -2674,7 +2769,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Technical Account Manager duties fit well, but the role is tied to a Dallas office in an off-target industry.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ace09ebfc91b5d10",
@@ -2705,7 +2801,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote healthcare CSM title fits, but the senior 'Level V' grading suggests it may sit above the target seniority band.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "63f68eb6657e3ca7",
@@ -2733,7 +2830,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Comp and seniority line up well, but the role requires on-site presence in specific cities and sits outside core target industries.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ae3b8277f4ab5a11",
@@ -2761,7 +2859,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title and healthcare-tech industry match, but the lack of remote work is a dealbreaker for this candidate's requirements.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "4e924793e7200d73",
@@ -2774,7 +2873,7 @@
    "url": "https://www.linkedin.com/jobs/view/4434142838",
    "source": "linkedin",
    "alt_sources": [],
-   "date_posted": "2026-07-21",
+   "date_posted": null,
    "first_seen": "2026-07-21T20:57:26Z",
    "description": null,
    "score": 48,
@@ -2788,7 +2887,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good fintech industry and title fit, but appears to be an on-site Raleigh role rather than remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "34b72fd41cd9251b",
@@ -2816,7 +2916,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Customer Success title fits well at a SaaS company, but it's an onsite Georgia role in a non-core vertical.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "4fa9ab0378c1b13b",
@@ -2845,7 +2946,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong title and industry fit undercut by an on-site New York location rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3828cc185a0510ae",
@@ -2875,7 +2977,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Solid fintech CSM title match, but restricted to a New York location instead of remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "1065b41d69661bf5",
@@ -2907,7 +3010,8 @@
     "sales-quota role"
    ],
    "one_line_pitch": "Onboarding/renewal responsibilities fit well, but the role leans sales-oriented and is tied to a Raleigh office.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "6bc7fe1b54c9f584",
@@ -2936,7 +3040,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong remote implementation role and pay, but industry and ERP specialization are a mismatch.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "70cd0fd8bedcea95",
@@ -2967,7 +3072,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Solid CSM title and pay match, but it's onsite in an off-target industry.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "c4fa86f1972b3d26",
@@ -2996,7 +3102,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title and industry fit for implementation work, but restricted to three specific metro areas rather than open remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "0a3c023ee094a2a6",
@@ -3023,24 +3130,23 @@
    ],
    "flags": [],
    "one_line_pitch": "Exact title match for Customer Success Manager, though the on-site PA location and unclear industry are drawbacks.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "a2a53b33466a3a7f",
    "title": "Strategic Customer Success Manager",
    "company": "SentiLink",
    "location": "New York, NY",
-   "comp_min": 160000,
-   "comp_max": 190000,
-   "comp_text": "$160,000–$190,000",
+   "comp_min": null,
+   "comp_max": null,
+   "comp_text": null,
    "url": "https://www.linkedin.com/jobs/view/4443709682",
    "source": "linkedin",
-   "alt_sources": [
-    "indeed"
-   ],
-   "date_posted": "2026-07-21",
+   "alt_sources": [],
+   "date_posted": null,
    "first_seen": "2026-07-22T01:40:59Z",
-   "description": "**Location** ------------ United States **Employment Type** ------------------- Full time **Location Type** ----------------- Remote **Department** -------------- Partner Success SentiLink provides innovative identity and risk solutions, empowering institutions and individuals to transact with confidence. We’re building the future of identity verification in the United States replacing a clunky, ineffective, and expensive status quo with solutions that are 10x faster, smarter, and more accurate. We’ve seen tremendous traction and are growing extremely quickly. Our real\\-time APIs have helped verify hundreds of millions of identities, starting with financial services and rapidly expanding into new markets. SentiLink is backed by world\\-class investors including Craft Ventures, Andreessen Horowitz, NYCA, and Max Levchin. We’ve earned recognition from TechCrunch, CNBC, Bloomberg, Forbes, Business Insider, PYMNTS, American Banker, LendIt, and have been named to the Forbes Fintech 50\\. We have also been named a 2026 FICO Industry Vanguard Decision Award Winner. Last but not least, we’ve even made history \\- we were the first company to go live with the eCBSV and testified before the United States House of Representatives on the future of identity. SentiLink supports a variety of ways to work, ranging from fully remote to in\\-office. We operate as a digital\\-first company with strong collaboration across the U.S. and India. We maintain physical offices in Austin, San Francisco, New",
+   "description": null,
    "score": 45,
    "strengths": [
     "Title matches target (Customer Success Manager)",
@@ -3053,24 +3159,23 @@
    ],
    "flags": [],
    "one_line_pitch": "Great fintech industry fit undercut by an onsite NYC requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "be74953616536e32",
    "title": "Enterprise Customer Success Manager",
    "company": "SentiLink",
    "location": "Los Angeles, CA",
-   "comp_min": 130000,
-   "comp_max": 150000,
-   "comp_text": "$130,000–$150,000",
+   "comp_min": null,
+   "comp_max": null,
+   "comp_text": null,
    "url": "https://www.linkedin.com/jobs/view/4443729049",
    "source": "linkedin",
-   "alt_sources": [
-    "indeed"
-   ],
-   "date_posted": "2026-07-21",
+   "alt_sources": [],
+   "date_posted": null,
    "first_seen": "2026-07-22T01:40:59Z",
-   "description": "**Location** ------------ United States **Employment Type** ------------------- Full time **Location Type** ----------------- Remote **Department** -------------- Partner Success SentiLink provides innovative identity and risk solutions, empowering institutions and individuals to transact with confidence. We’re building the future of identity verification in the United States replacing a clunky, ineffective, and expensive status quo with solutions that are 10x faster, smarter, and more accurate. We’ve seen tremendous traction and are growing extremely quickly. Our real\\-time APIs have helped verify hundreds of millions of identities, starting with financial services and rapidly expanding into new markets. SentiLink is backed by world\\-class investors including Craft Ventures, Andreessen Horowitz, NYCA, and Max Levchin. We’ve earned recognition from TechCrunch, CNBC, Bloomberg, Forbes, Business Insider, PYMNTS, American Banker, LendIt, and have been named to the Forbes Fintech 50\\. We have also been named a 2026 FICO Industry Vanguard Decision Award Winner. Last but not least, we’ve even made history \\- we were the first company to go live with the eCBSV and testified before the United States House of Representatives on the future of identity. SentiLink supports a variety of ways to work, ranging from fully remote to in\\-office. We operate as a digital\\-first company with strong collaboration across the U.S. and India. We maintain physical offices in Austin, San Francisco, New",
+   "description": null,
    "score": 45,
    "strengths": [
     "Title matches target (Customer Success Manager)",
@@ -3082,7 +3187,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Same strong fintech fit as SentiLink's NY role, but again limited by an onsite LA requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "9e88bb95df978700",
@@ -3111,7 +3217,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Title and industry are a great match, but the on-site NYC requirement and well-above-market pay point to a more senior TAM role.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "0874426227fbd354",
@@ -3141,7 +3248,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Pay and title are a strong match, but the role is on-site in NYC and serves an industry outside the core target list.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "753d444a3f2a4f17",
@@ -3168,7 +3276,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid CSM title and comp fit in a SaaS company, undercut only by the onsite Massachusetts requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "fb8ab13ac3c56c5e",
@@ -3195,7 +3304,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote CSM title match, but the listing lacks enough detail on employer, industry, or pay to assess fit confidently.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "923d8c1f02a47719",
@@ -3225,7 +3335,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Great industry and functional fit, but the 'Principal' title likely sits above the target seniority band.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a00d0cfb49a9b7b0",
@@ -3255,7 +3366,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Right title but an on-site Boston cloud-infra role outside the target remote/industry profile.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a9b6bd194c349c31",
@@ -3284,7 +3396,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "TAM title matches but on-site NYC requirement and vague industry limit the fit.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "132c6dfdaf114d9a",
@@ -3311,7 +3424,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title fits but the listing appears to be sourced via an aggregator, obscuring the real employer and industry.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d8c5ea286ce4739f",
@@ -3340,7 +3454,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title and fintech-adjacent industry fit, but location appears restricted to North Carolina rather than open remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "6b64fa1adc40e751",
@@ -3367,7 +3482,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title fits but listed via a staffing platform, leaving true employer and industry uncertain.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "596c4926a51475d1",
@@ -3396,7 +3512,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title and industry alignment, but the Chicago-based location conflicts with the remote-only requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "655a40bbf453b950",
@@ -3424,7 +3541,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A TAM role centered on Google Workspace plays directly to the candidate's tool experience, though it's not remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "44415ba6a2fd045b",
@@ -3453,7 +3571,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Great fintech/payments industry fit, but likely onsite and possibly more junior (analyst-level) than the CSM title suggests.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "f5beb883e2655f77",
@@ -3480,7 +3599,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid CSM title fit at a notable SaaS company, but the lack of remote option is a dealbreaker constraint.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d4b143842442f179",
@@ -3507,7 +3627,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Digital CSM role at a SaaS company with strong title alignment, undercut by the in-office location.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "f0e06c979c15fcf6",
@@ -3536,7 +3657,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Excellent title match in SaaS, but location isn't remote as needed.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "1b5cdc563ccfc650",
@@ -3566,7 +3688,8 @@
     "sales-quota role"
    ],
    "one_line_pitch": "Client Success Manager title matches, but the role is really a quota-driven renewals/upsell position outside the target industries.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "2d9dbc4ea744906b",
@@ -3596,7 +3719,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title and pay, but an adtech-adjacent onsite role rather than a core target industry or remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "eeec953a29bb1cdb",
@@ -3624,7 +3748,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Senior TAM in security SaaS is a good experience match, limited by the on-site MA location.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "d7091ee98780221d",
@@ -3637,7 +3762,7 @@
    "url": "https://www.linkedin.com/jobs/view/4434793574",
    "source": "linkedin",
    "alt_sources": [],
-   "date_posted": "2026-07-21",
+   "date_posted": null,
    "first_seen": "2026-07-22T01:40:59Z",
    "description": null,
    "score": 42,
@@ -3651,7 +3776,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Well-matched title at a top SaaS company, but the Boston on-site requirement works against a remote search.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "eca7c7698399f2e2",
@@ -3678,7 +3804,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good SaaS industry and title fit, but onsite requirement is a dealbreaker for a remote-only search.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "d8d729f19c99e317",
@@ -3706,7 +3833,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong industry and title fit at a known SaaS company, undercut by lack of remote work.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7692f04ede8fb8a4",
@@ -3738,7 +3866,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote and reasonably paid, but the strategic 'Senior CSM, executive advisor' scope likely exceeds the target seniority level.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "9484fa5cfabb9e64",
@@ -3768,7 +3897,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title, industry, and comp match but requires onsite presence in Denver, disqualifying it as a remote role.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "f2c6527ce85f0778",
@@ -3795,7 +3925,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right title but an in-office Miami role that doesn't meet the remote requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8a0059f8b847e3de",
@@ -3823,7 +3954,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote TAM title but a niche Azure cloud specialist role outside core industry and skill focus.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3a48c79cc3fe9971",
@@ -3852,7 +3984,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Implementation Specialist title and remote setup fit well, but the automotive-industry focus and required dealership domain experience are a mismatch.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "1247f66dcdbfd352",
@@ -3880,7 +4013,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Relevant implementation title but requires on-site work in Virginia, breaking the remote requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ed8a324aecb73f47",
@@ -3907,7 +4041,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid SaaS TAM title match, held back by an on-site FL location.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "74da157abe3626e2",
@@ -3935,7 +4070,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid title and likely healthcare-tech fit, but lack of remote option and missing details limit confidence.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "a840c192bb0d6784",
@@ -3962,7 +4098,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid SaaS CSM title and industry fit, but the role looks to be on-site in San Francisco rather than remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7d083fbef9953027",
@@ -3990,7 +4127,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Remote but an off-target industry and a role that reads more analyst/ops than customer success.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "67169676aa95572e",
@@ -4018,7 +4156,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid implementation-consultant title at a logistics SaaS company, but onsite in Alabama and a niche imaging specialization.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "9c0d037bedefb55a",
@@ -4047,7 +4186,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Title suggests a people-manager/enterprise leadership role that likely exceeds the target IC-level CSM scope.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0c8d8ff0a7ff2cae",
@@ -4078,7 +4218,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Great SaaS industry fit, but the architect-level scope and pay band sit well above this profile's target seniority.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3dcd18e26ea75c1e",
@@ -4106,7 +4247,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong industry and title fit, but appears to be an on-site Bellevue, WA role rather than remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "88820f5cf1e36322",
@@ -4133,7 +4275,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right title but an on-site role in an industry outside the target verticals.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "d22018877d4008a0",
@@ -4163,7 +4306,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Fintech-adjacent and title-relevant, but on-site and likely more senior than the target profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "d325db52a18aa51f",
@@ -4190,7 +4334,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title match at a SaaS data company, but the on-site AR location works against the remote requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "84e23723f90d6317",
@@ -4217,7 +4362,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good title fit at a security-tech vendor, but the NYC on-site requirement is a mismatch for a remote search.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "ed735aa8ca0a0d89",
@@ -4230,7 +4376,7 @@
    "url": "https://www.linkedin.com/jobs/view/4440447447",
    "source": "linkedin",
    "alt_sources": [],
-   "date_posted": "2026-07-21",
+   "date_posted": null,
    "first_seen": "2026-07-22T01:40:59Z",
    "description": null,
    "score": 38,
@@ -4244,7 +4390,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Reasonable SaaS TAM title match, but on-site Boston location limits fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "276918cbede440cc",
@@ -4272,7 +4419,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Healthcare tech CS role with good title alignment, but onsite location and ambiguous seniority are drawbacks.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "cdc2d185a46d14b6",
@@ -4299,7 +4447,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good title and plausible industry fit, limited mainly by lack of remote option and unstated pay.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "090b0b20c4c45510",
@@ -4326,7 +4475,8 @@
    ],
    "flags": [],
    "one_line_pitch": "A scaled/pooled CSM role in-office in Chicago, likely below target seniority and comp.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "0f2fa9ad9d0d3187",
@@ -4355,7 +4505,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "CSM title fits but the role is geographically tied to California via a staffing agency, not fully remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "2bd3190b66f0c7bd",
@@ -4382,7 +4533,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid title and industry fit but requires onsite presence in New York, conflicting with the remote-only requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "350e5cbbe4937dee",
@@ -4413,7 +4565,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A team-lead/coaching role one level above the target individual-contributor CSM scope.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "12abb41c6a157b2f",
@@ -4441,7 +4594,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title and industry match well, but the role is based onsite in San Francisco rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "af6dcbf1697af32a",
@@ -4469,7 +4623,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Great title fit but an on-site Boston role, which conflicts with the remote-only requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "5aa3028cf3936e61",
@@ -4497,7 +4652,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Partial title overlap but an on-site, network-infrastructure-leaning role that's a stretch from the CS/onboarding focus.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "6a625c98d426eeda",
@@ -4524,7 +4680,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but the on-site location and unclear industry limit fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "27ac7c3a8b364f2d",
@@ -4552,7 +4709,8 @@
    ],
    "flags": [],
    "one_line_pitch": "SaaS CSM title match at Blackbaud, but appears to be an onsite Charleston role with limited available info.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "030ace506523470a",
@@ -4580,7 +4738,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Strong title match but disqualified by lack of remote option and industry mismatch.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "fa2fe5b1e1d177d9",
@@ -4608,7 +4767,8 @@
    ],
    "flags": [],
    "one_line_pitch": "SaaS CS role with decent title fit, but location is onsite and seniority scope is unclear.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7d4cd53cdd0b0fb0",
@@ -4637,7 +4797,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Great title and industry fit, but appears to require onsite work in Kansas City rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "abb250ebd43f74aa",
@@ -4665,7 +4826,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid onboarding title and payments angle, but disqualified by the on-site NYC requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "40aff232f2b17f62",
@@ -4693,7 +4855,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Reasonable title fit undermined by an on-site requirement outside the remote-only criteria.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "4922d59c1194c809",
@@ -4721,7 +4884,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good CSM/healthtech title match but is an onsite Menlo Park role, failing the remote requirement.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a44c4c43aecbad05",
@@ -4751,7 +4915,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Right industry and function, but a VP-level role well above the target seniority band.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a1d4ec598569af5d",
@@ -4778,7 +4943,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Good title and healthcare-tech industry alignment, but requires onsite presence in Appleton, Wisconsin.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "69d034761572ecaa",
@@ -4806,7 +4972,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right title and seniority, but wrong industry and likely requires on-site presence in San Francisco.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "e0770bf784544ae9",
@@ -4834,7 +5001,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Solid CS title and SaaS-adjacent industry, but likely requires on-site presence in Boston.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0d612e9ec77bb76c",
@@ -4862,7 +5030,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Healthcare CSM title fits well, but the role is onsite in Maryland and focused on a specialized ophthalmology product.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "eeacb1a6e2b5cd91",
@@ -4891,7 +5060,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title/industry match undercut by an on-site DC requirement.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "c38166762e55747f",
@@ -4919,7 +5089,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Onboarding-titled role, but it's for internal AI tutor training rather than customer-facing SaaS onboarding, and it's office-based.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "6a4c3950bc36d47b",
@@ -4946,7 +5117,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right title, but unclear industry and an apparent on-site Portland requirement limit fit.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "3daf3ab6a13b40d7",
@@ -4974,7 +5146,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but this is an onsite Seattle role managing CPG supplier partnerships, outside the target remote/SaaS scope.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "51aa2226bd975da2",
@@ -5001,7 +5174,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but role appears NY-based with no remote designation and minimal information to assess fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "bd6cbfa5e4561867",
@@ -5029,7 +5203,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title and responsibilities fit, but the hybrid on-site requirement and off-target industry limit overall fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "6e0d9b6eaec68075",
@@ -5058,7 +5233,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Good title and industry fit, but appears to be an onsite New York role rather than remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "27d1b7d1eed9ec21",
@@ -5087,7 +5263,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "CSM title fits well, but the listing appears to require onsite presence in New York.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "c66deba4af2a5ecc",
@@ -5116,7 +5293,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Right title but wrong industry and location-locked to Denver, a weak overall fit.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "f58b21a667c89e5c",
@@ -5143,7 +5321,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but the role is onsite in New York and the industry fit is unclear.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "f18d535455ee5df9",
@@ -5172,7 +5351,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A leadership-level portfolio role that likely sits above the target seniority and isn't remote.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "8f54035fe83d49e3",
@@ -5201,7 +5381,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Right function but wrong seniority and not remote, making it a weak fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "20e66bacf3f55bc6",
@@ -5231,7 +5412,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Implementation-titled role but it's an onsite government IT contract far from target industries.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "627f30876a4eb3a4",
@@ -5261,7 +5443,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Senior-level onsite Amazon role centered on CPG supplier partnerships, a poor match for a remote technical CS profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "bc578f06d65b6e4f",
@@ -5289,7 +5472,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches, but this is an onsite healthcare services role rather than the target healthcare tech/SaaS space.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "4dc6a8b4e5fd8db7",
@@ -5319,7 +5503,8 @@
     "low comp"
    ],
    "one_line_pitch": "A remote client success/account role with relevant onboarding duties, but at a marketing agency with sub-market low-end pay.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "5e3fcd92a569287e",
@@ -5346,7 +5531,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches well, but the industry (research/advisory) and onsite location are poor fits for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "d2eee6d1672ba8ff",
@@ -5377,7 +5563,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Title and industry fit are strong, but the role is onsite in Miami and pitched at an entry level below this candidate's experience.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0b6f071bca103fd6",
@@ -5404,7 +5591,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Territory-based automotive software implementation role in Charlotte, NC — industry and remote mismatch outweigh the title overlap.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "444273361c1eaa36",
@@ -5431,7 +5619,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Right job title but wrong industry (industrial equipment) and no remote option.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a83225716b27a98a",
@@ -5459,7 +5648,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but lacks remote option and enough information to assess industry or legitimacy.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "cc4378b13790c08e",
@@ -5488,7 +5678,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "High-paying Senior CSM role at a major SaaS company, but onsite in SF and priced well above the target seniority/comp band.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "537732e174c76d97",
@@ -5518,7 +5709,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Remote is a plus, but industry mismatch and an executive-level title make this a poor fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "7d2aafe3bdd18e2f",
@@ -5548,7 +5740,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "Junior technician-level title and an off-target hardware/telecom industry make this a weak fit.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "d2539b1f3ff43335",
@@ -5578,7 +5771,8 @@
     "low comp"
    ],
    "one_line_pitch": "Remote client success role, but it's at a small marketing agency with sub-market pay and ad-campaign duties outside the target scope.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "06a69f2997460df9",
@@ -5606,7 +5800,8 @@
    ],
    "flags": [],
    "one_line_pitch": "Title matches but the travel requirement and off-target industry make this a weak fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8bdda85db3920383",
@@ -5636,7 +5831,8 @@
     "low comp"
    ],
    "one_line_pitch": "A low-paying virtual coaching/onboarding gig at a staffing agency that underuses this candidate's technical CS background.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8b9e7e62586d65e1",
@@ -5666,7 +5862,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A team-leadership role managing other CSMs in NYC — too senior/managerial and not remote for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "8d103c06def5b491",
@@ -5695,7 +5892,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A remote Director role — too senior and off-industry for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "074fa8cb57e3ac84",
@@ -5724,7 +5922,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Onboarding-adjacent title but onsite in Chicago and outside the target industry list.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "0e2f7e2f567383ad",
@@ -5754,7 +5953,8 @@
     "sales-quota role"
    ],
    "one_line_pitch": "A 'client success' title attached to a course-selling coaching business rather than a genuine CS/onboarding role.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a430eeb3f0524a40",
@@ -5784,7 +5984,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A senior analytics-leadership CS role that's overqualified in both seniority and pay for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "326455d76d42b221",
@@ -5815,7 +6016,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "A senior leadership account-delivery role that overshoots the target seniority level and isn't remote.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "b00b23b8bcf4093e",
@@ -5845,7 +6047,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "An entry-level client success/account exec role at a niche domain marketplace, too junior for this candidate's experience.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "98953b187d9e41fc",
@@ -5874,7 +6077,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A senior director role leading a global CS org — far above the individual-contributor level this profile targets.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a4834b72b397c138",
@@ -5904,7 +6108,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A finance operations management role that doesn't align with the CS/onboarding profile despite superficial 'implementation' wording.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "9578417733f954fc",
@@ -5934,7 +6139,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A Director-level cybersecurity CS leadership role that's a clear seniority overshoot for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "db194eaa903c40cd",
@@ -5964,7 +6170,8 @@
     "sales-quota role"
    ],
    "one_line_pitch": "A senior 'Principal' CS role with commercial/renewal quota ownership and contract-to-hire terms — too senior and not a clean full-time fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "0963e58e652011cd",
@@ -5994,7 +6201,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong CS title but geographically excludes US remote workers and expects a developer skill set.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "4834a4b90243815e",
@@ -6024,7 +6232,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A Director-level strategic account role in an unrelated AI/travel-tech vertical, well above the candidate's target seniority.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "53af88518ccc3e00",
@@ -6055,7 +6264,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "An onsite timeshare sales-closing role wearing an 'onboarding' label, poor fit.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "f1abadf6caadb895",
@@ -6086,7 +6296,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A senior director-level cloud services leadership role, far too senior and not remote for this profile.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "a6a8d79461ecb78d",
@@ -6115,7 +6326,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "Strong CSM title match but the role is tied to Thailand, not open to US remote candidates.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "92f96c43bd1a8caa",
@@ -6144,7 +6356,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "TAM title matches well but this position is scoped to South Africa, not a US remote role.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   },
   {
    "id": "00d170ec53a42aea",
@@ -6174,7 +6387,8 @@
     "seniority mismatch"
    ],
    "one_line_pitch": "A senior executive fintech client success leadership role, dramatically overqualified in seniority and compensation for this profile.",
-   "scored_at": "2026-07-22T02:38:35Z"
+   "scored_at": "2026-07-22T02:38:35Z",
+   "remote": true
   },
   {
    "id": "80b09a43caaa57b4",
@@ -6201,7 +6415,8 @@
     "location-restricted"
    ],
    "one_line_pitch": "An education research consultancy with no overlap in title, industry, or work type.",
-   "scored_at": "2026-07-22T13:35:45Z"
+   "scored_at": "2026-07-22T13:35:45Z",
+   "remote": true
   }
  ]
 }

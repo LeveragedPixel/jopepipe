@@ -131,6 +131,14 @@
   }
   #refresh-status { color: var(--muted); }
   .rf-link { color: var(--accent); }
+
+  #profiles { display: flex; gap: 4px; }
+  .ptab {
+    background: var(--panel2); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px 12px; font-size: 12.5px; cursor: pointer;
+  }
+  .ptab.active { background: var(--accent); color: #06101f; border-color: transparent; font-weight: 600; }
+  label.remote-only { color: var(--muted); font-size: 12px; display: flex; align-items: center; gap: 6px; }
 </style>
 </style>
 </head>
@@ -138,6 +146,7 @@
 <header>
   <div class="head-row">
     <h1>JobPipe</h1>
+    <div id="profiles"></div>
     <div id="stats">loading…</div>
   </div>
   <div id="warnings"></div>
@@ -153,6 +162,8 @@
   <label>Min score <input type="range" id="minScore" min="0" max="100" step="5" value="70">
     <span id="minScoreVal">70</span></label>
   <label>Search <input type="search" id="search" placeholder="title or company"></label>
+  <label>Location <input type="search" id="locSearch" placeholder="city or state"></label>
+  <label class="remote-only"><input type="checkbox" id="remoteOnly"> remote only</label>
   <label>Source <select id="source"><option value="">all</option></select></label>
   <label>Comp ≥ $<input type="number" id="compFloor" step="5000" min="0" placeholder="any"></label>
   <label>Posted <select id="days">
@@ -177,16 +188,21 @@
 
 <script>
 "use strict";
-const LS_KEY = "jobpipe-status-v1";
 let DATA = { meta: {}, jobs: [] };
+let activeProfile = "leigh";
 let statuses = {};
-try { statuses = JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { statuses = {}; }
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g,
   c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-function saveStatuses() { localStorage.setItem(LS_KEY, JSON.stringify(statuses)); }
+// Applied/Save/Hide are tracked per profile so the two job lists never collide.
+const statusKey = () => `jobpipe-status-${activeProfile}`;
+function loadStatuses() {
+  try { statuses = JSON.parse(localStorage.getItem(statusKey())) || {}; }
+  catch (e) { statuses = {}; }
+}
+function saveStatuses() { localStorage.setItem(statusKey(), JSON.stringify(statuses)); }
 
 function setStatus(id, key) {
   const cur = statuses[id] || {};
@@ -276,6 +292,8 @@ function filters() {
   return {
     minScore: +$("minScore").value,
     q: $("search").value.trim().toLowerCase(),
+    loc: $("locSearch").value.trim().toLowerCase(),
+    remoteOnly: $("remoteOnly").checked,
     source: $("source").value,
     compFloor: +$("compFloor").value || 0,
     days: $("days").value ? +$("days").value : null,
@@ -293,6 +311,8 @@ function visible(job, f) {
   if (job.score == null) { if (!f.showUnscored) return false; }
   else if (job.score < f.minScore) return false;
   if (f.q && !(job.title + " " + job.company).toLowerCase().includes(f.q)) return false;
+  if (f.loc && !(job.location || "").toLowerCase().includes(f.loc)) return false;
+  if (f.remoteOnly && !(job.remote || /remote|anywhere/i.test(job.location || ""))) return false;
   if (f.source && job.source !== f.source && !(job.alt_sources || []).includes(f.source)) return false;
   if (f.compFloor && (job.comp_max ?? job.comp_min ?? 0) < f.compFloor) return false;
   if (f.days != null) {
@@ -393,28 +413,53 @@ function wireRefresh() {
   if (!getToken()) setRfStatus("Tip: click ⚙ Set up refresh once to enable the buttons.");
 }
 
-async function init() {
-  wireRefresh();
+async function loadProfile(id) {
+  activeProfile = id;
+  loadStatuses();
+  // Reflect the active tab
+  for (const tab of document.querySelectorAll(".ptab"))
+    tab.classList.toggle("active", tab.dataset.id === id);
+  try { history.replaceState(null, "", `?profile=${encodeURIComponent(id)}`); } catch (e) {}
   try {
-    const resp = await fetch("data/jobs.json", { cache: "no-store" });
+    const resp = await fetch(`data/jobs-${id}.json`, { cache: "no-store" });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     DATA = await resp.json();
     DATA.jobs = DATA.jobs || [];
   } catch (e) {
-    $("stats").textContent = "could not load data/jobs.json — has the pipeline run yet?";
+    $("stats").textContent = `could not load data/jobs-${id}.json — has the pipeline run for this profile yet?`;
+    $("list").innerHTML = "";
     return;
   }
-  // Populate source dropdown
   const sources = [...new Set(DATA.jobs.flatMap(j => [j.source, ...(j.alt_sources || [])]))].sort();
   $("source").innerHTML = `<option value="">all</option>` +
     sources.map(s => `<option>${esc(s)}</option>`).join("");
-  // If nothing is scored yet (first run / scoring down), show unscored so the page isn't blank.
-  if (!DATA.jobs.some(j => j.score != null)) $("showUnscored").checked = true;
+  $("showUnscored").checked = !DATA.jobs.some(j => j.score != null);
   renderHeader();
   render();
-  for (const id of ["minScore", "search", "source", "compFloor", "days",
-                    "showUnscored", "showHidden", "statusFilter"])
+}
+
+async function init() {
+  wireRefresh();
+  // Discover profiles; fall back to a single default if the index isn't there.
+  let profiles = [{ id: "leigh", name: "Leigh" }];
+  try {
+    const resp = await fetch("data/profiles-index.json", { cache: "no-store" });
+    if (resp.ok) { const idx = await resp.json(); if (idx.profiles?.length) profiles = idx.profiles; }
+  } catch (e) {}
+  // Only show the switcher when there's more than one profile.
+  $("profiles").innerHTML = profiles.length > 1
+    ? profiles.map(p => `<button class="ptab" data-id="${esc(p.id)}">${esc(p.name)}</button>`).join("")
+    : "";
+  for (const tab of document.querySelectorAll(".ptab"))
+    tab.addEventListener("click", () => loadProfile(tab.dataset.id));
+
+  for (const id of ["minScore", "search", "locSearch", "remoteOnly", "source",
+                    "compFloor", "days", "showUnscored", "showHidden", "statusFilter"])
     $(id).addEventListener("input", render);
+
+  const wanted = new URLSearchParams(location.search).get("profile");
+  const start = profiles.find(p => p.id === wanted)?.id || profiles[0].id;
+  await loadProfile(start);
 }
 init();
 </script>
