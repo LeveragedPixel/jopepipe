@@ -105,7 +105,9 @@ def score_batch(profile, batch):
         timeout=BATCH_TIMEOUT_S,
     )
     if result.returncode != 0:
-        raise RuntimeError(f"claude exited {result.returncode}: {result.stderr.strip()[:300]}")
+        # The CLI often reports errors (auth, usage limits) on stdout, not stderr
+        detail = (result.stderr.strip() or result.stdout.strip())[:300]
+        raise RuntimeError(f"claude exited {result.returncode}: {detail}")
     return extract_json_array(result.stdout)
 
 
@@ -154,6 +156,12 @@ def main():
         save_data(data)
         print("[warn] no CLAUDE_CODE_OAUTH_TOKEN; publishing unscored jobs")
         return
+
+    token = os.environ["CLAUDE_CODE_OAUTH_TOKEN"]
+    wellformed = bool(re.fullmatch(r"sk-ant-oat\d{2}-[A-Za-z0-9_\-]+", token))
+    print(f"[info] token: {len(token)} chars, wellformed={wellformed}")
+    version = subprocess.run(["claude", "--version"], capture_output=True, text=True)
+    print(f"[info] claude CLI: {version.stdout.strip() or version.stderr.strip()}")
 
     profile = os.environ.get("RESUME_CONTEXT") or DEFAULT_PROFILE
     warning = None
