@@ -1,14 +1,35 @@
 {
  "meta": {
-  "last_run": "2026-07-22T02:08:25Z",
-  "total": 184,
-  "scraped_this_run": 317,
-  "new_this_run": 39,
+  "last_run": "2026-07-22T02:20:43Z",
+  "total": 185,
+  "scraped_this_run": 176,
+  "new_this_run": 1,
   "high_matches": 0,
   "source_failures": [],
-  "scoring_warning": "Scoring stopped at batch 1/12: claude exited 1: Failed to authenticate. API Error: 401 Invalid bearer token"
+  "scoring_warning": "Scoring stopped at batch 1/12: claude exited 1: Failed to authenticate. API Error: 401 OAuth access token is invalid."
  },
  "jobs": [
+  {
+   "id": "a4834b72b397c138",
+   "title": "Manager, Finance Systems Implementation",
+   "company": "Inhabit",
+   "location": "Atlanta, GA, US",
+   "comp_min": null,
+   "comp_max": null,
+   "comp_text": null,
+   "url": "https://www.indeed.com/viewjob?jk=66d1976c1a36eb15",
+   "source": "indeed",
+   "alt_sources": [],
+   "date_posted": "2026-07-21",
+   "first_seen": "2026-07-22T02:20:43Z",
+   "description": "**About Inhabit** Inhabit is a global PropTech software company serving over 5 million units in the residential and short\\-term rental property management industries. Our 1,500\\+ team members drive strategic partnerships, deliver best\\-in\\-class software solutions and services, and foster innovation and collaboration across software, payments, and insurance. Learn more at, visit inhabit.com. **Job Description** The Manager, Finance Systems Implementation will lead Inhabit's end\\-to\\-end Order\\-to\\-Cash (O2C) function, with direct ownership of billing, cash application, collections, customer master data, and revenue controls. This role possesses a strategic mindset with the ability to provide thought leadership across functional areas of the organization and is critical to delivering accurate, timely, and well\\-controlled revenue operations for internal and external customers. Reporting into Finance, the Manager partners closely with Accounting, FP\\&A, IT, Sales Operations, and Customer Success to centralize and standardize O2C processes across Inhabit's portfolio of brands, strengthen internal controls and segregation of duties, and drive automation and continuous improvement across billing, cash application, and collections. **What You'll Do (Functions \\& Responsibilities)** * Manage a team supporting the following areas. + **Billing Operations:** Oversee accurate and timely customer invoicing across all Inhabit brands and billing platforms. Manage billing exceptions, contra",
+   "score": null,
+   "strengths": [],
+   "gaps": [],
+   "flags": [],
+   "one_line_pitch": null,
+   "scored_at": null
+  },
   {
    "id": "446eab00c44b9e16",
    "title": "Implementation Data Specialist",
